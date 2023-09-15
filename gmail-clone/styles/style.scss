@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+@import 'modules';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'roboto';
+  background: #f6f8fc;
+}
+
+// üst kısım
+header {
+  @extend .between;
+  padding: 20px;
+  gap: 20px;
+  font-size: 21px;
+  //  sol
+  .left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    i {
+      font-size: 29px;
+    }
+    img {
+      width: 50px;
+      margin-left: 10px;
+    }
+  }
+  //  orta
+  .middle {
+    form {
+      display: flex;
+      background: rgb(243, 243, 243);
+      padding: 6px 9px;
+      gap: 10px;
+      border-radius: 10px;
+
+      input {
+        border: none;
+        outline: none;
+        font-size: 18px;
+        background: transparent;
+      }
+    }
+
+    @media (max-width: 750px) {
+      display: none;
+    }
+  }
+  //  sağ
+  .right {
+    @extend .between;
+    gap: 15px;
+    i {
+      @extend .icon;
+    }
+
+    img {
+      border-radius: 50%;
+      height: 36px;
+    }
+  }
+}
+
+// ana içerik
+
+section {
+  display: flex;
+  gap: 20px;
+}
+
+// sol > naivgasyoon alanı
+nav {
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  gap: 40px;
+
+  .create {
+    background: $light_blue;
+    border-radius: 15px;
+    padding: 10px;
+    display: flex;
+    gap: 20px;
+    cursor: pointer;
+    transition: box-shadow 0.3s;
+
+    &:hover {
+      box-shadow: 2px 2px 10px gray;
+    }
+  }
+
+  ul {
+    display: grid;
+    font-size: 16px;
+    li {
+      padding: 8px;
+      margin-left: 4px;
+      display: flex;
+      gap: 12px;
+      border-radius: 0 20px 20px 0;
+      cursor: pointer;
+      &:hover {
+        background: $light_blue;
+      }
+
+      i,
+      span {
+        // element üzerindeki tıklnma olaylarını devre dışı bırakır
+        pointer-events: none;
+      }
+    }
+  }
+
+  .active {
+    background: $light_blue;
+  }
+
+  .bottom {
+    margin-left: 8px;
+  }
+}
+
+// kaldırlıacak elemanlar
+.hide {
+  span {
+    display: none;
+  }
+}
+
+// orta > mailler
+main {
+  // flex elemanının büyümesine izin verir
+  flex-grow: 1;
+
+  .top {
+    background: white;
+    border-radius: 10px 10px 0 0;
+    padding: 8px 16px;
+    @extend .between;
+
+    i {
+      @extend .icon;
+    }
+
+    .left {
+      display: flex;
+      gap: 10px;
+    }
+
+    .right {
+      @extend .between;
+      gap: 10px;
+    }
+  }
+
+  .mails {
+    height: 80vh;
+    background: $gray;
+  }
+}
+
+// mail stilleri
+
+.mail {
+  display: grid;
+  align-items: center;
+  justify-content: space-between;
+  grid-template-columns: 1fr 3fr 1fr;
+  font-size: 16px;
+  padding: 10px;
+  border-bottom: 1px solid white;
+
+  .content {
+    display: flex;
+    .title {
+      font-weight: bold;
+    }
+  }
+
+  .time {
+    text-align: end;
+  }
+}
+
+// sağ > yan içerik
+aside {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  padding: 20px;
+
+  span {
+    background: $dark_gray;
+    width: 100%;
+    height: 2px;
+  }
+
+  img {
+    @extend .icon;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+  }
+
+  @media (max-width: 750px) {
+    display: none;
+  }
+}

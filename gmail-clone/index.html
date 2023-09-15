@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Gmail</title>
+    <link rel="stylesheet" href="styles/style.css" />
+    <!-- icon bağlantı -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
+    />
+  </head>
+  <body>
+    <header>
+      <!-- sol kısım -->
+      <div class="left">
+        <div id="menu" class="icon">
+          <i class="bi bi-list"></i>
+        </div>
+        <img src="/assets/gmail-logo.webp" />
+        <span>Gmail</span>
+      </div>
+      <!-- orta kısım -->
+      <div class="middle">
+        <form>
+          <div class="icon">
+            <i class="bi bi-search"></i>
+          </div>
+          <input placeholder="Mail ara..." type="text" />
+        </form>
+      </div>
+      <!-- sağ kısım -->
+      <div class="right">
+        <i class="bi bi-question-circle"></i>
+        <i class="bi bi-gear"></i>
+        <i class="bi bi-menu-button-wide-fill"></i>
+        <img src="/assets/man.jpg" />
+      </div>
+    </header>
+
+    <!-- ana içerik -->
+    <section>
+      <!-- sol navigasyon -->
+      <nav>
+        <!-- nav > üst kısım -->
+        <div class="create">
+          <i class="bi bi-pencil-fill"></i>
+          <span>Oluştur</span>
+        </div>
+
+        <!-- nav > liste alalnı -->
+        <ul class="categories">
+          <!--
+            JS'den gönderiliyor... 
+            <li>
+            <i class="bi bi-image"></i>
+            <span>Gelen Kutusu</span>
+          </li> -->
+        </ul>
+
+        <!-- nav > alt kısım -->
+        <div class="bottom">
+          <span>Kategoriler</span>
+          <i class="bi bi-plus-lg"></i>
+        </div>
+      </nav>
+
+      <!-- orta >  ana içerik -->
+      <main>
+        <!-- üst bar -->
+        <div class="top">
+          <div class="left">
+            <input type="checkbox" />
+            <i class="bi bi-arrow-clockwise"></i>
+            <i class="bi bi-three-dots-vertical"></i>
+          </div>
+          <div class="right">
+            <p>1-50 of 94</p>
+            <i class="bi bi-chevron-left"></i>
+            <i class="bi bi-chevron-right"></i>
+          </div>
+        </div>
+
+        <!-- mailler alanı -->
+        <div class="mails">
+          <!-- mail -->
+          <div class="mail">
+            <!-- mail >  sol -->
+            <div class="info">
+              <input type="checkbox" />
+              <i class="bi bi-star-fill"></i>
+              <b>Udemig</b>
+            </div>
+            <!-- mail > orta -->
+            <div class="content">
+              <p class="title">7-sezon cuma</p>
+              <p>merhabalar, bugün dersimiz kaçta?</p>
+            </div>
+            <!-- mail > sol -->
+            <p class="time">23:40</p>
+          </div>
+          <!-- mail -->
+          <div class="mail">
+            <!-- mail >  sol -->
+            <div class="info">
+              <input type="checkbox" />
+              <i class="bi bi-star-fill"></i>
+              <b>Udemig</b>
+            </div>
+            <!-- mail > orta -->
+            <div class="content">
+              <p class="title">7-sezon cuma</p>
+              <p>merhabalar, bugün dersimiz kaçta?</p>
+            </div>
+            <!-- mail > sol -->
+            <p class="time">23:40</p>
+          </div>
+        </div>
+      </main>
+
+      <!-- sağ > yan içerik -->
+      <aside>
+        <img src="/assets/calendar-48.png" />
+        <img src="/assets/keep-48.png" />
+        <img src="/assets/task-48.png" />
+        <img src="/assets/account-48.png" />
+        <span></span>
+        <i class="bi bi-plus-lg icon"></i>
+      </aside>
+    </section>
+
+    <!-- js bağlantı > birden fazla js dosyasıyla çalışabiliyoruz -->
+    <script type="module" src="main.js"></script>
+  </body>
+</html>
