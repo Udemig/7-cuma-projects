@@ -18,6 +18,81 @@
   background: #d8dbdd;
 }
 
+.modal-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.529);
+  width: 100%;
+  height: 100%;
+  display: none;
+  place-items: center;
+}
+
+.modal {
+  background: white;
+  width: 80%;
+  max-width: 700px;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+}
+.modal input {
+  border: none;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.712);
+  padding: 10px;
+  margin: 0 6px;
+  outline: none;
+}
+.modal textarea {
+  width: 100%;
+  height: 100%;
+  border: none;
+  resize: none;
+  outline: none;
+  padding: 16px;
+  font-family: "roboto";
+  border-radius: 10px;
+}
+.modal #send {
+  width: 140px;
+  border: none;
+  padding: 14px;
+  border-radius: 50px;
+  background: #1b61d1;
+  color: white;
+  margin: 10px;
+  cursor: pointer;
+}
+.modal #send:hover {
+  background: #0353d3;
+}
+
+.modal .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background: rgb(190, 191, 192);
+  border-radius: 10px 10px 0 0;
+  font-size: 20px;
+}
+.modal .header button {
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.modal .header button:hover {
+  background: gray;
+  color: white;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -153,6 +228,16 @@ main .mails {
   font-size: 16px;
   padding: 10px;
   border-bottom: 1px solid white;
+  -moz-column-gap: 5px;
+       column-gap: 5px;
+  cursor: pointer;
+}
+.mail:hover {
+  box-shadow: 0 0 30px rgba(128, 128, 128, 0.408);
+}
+.mail .info {
+  display: flex;
+  gap: 6px;
 }
 .mail .content {
   display: flex;
@@ -160,8 +245,29 @@ main .mails {
 .mail .content .title {
   font-weight: bold;
 }
+.mail .content .title,
+.mail .content .text {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
 .mail .time {
   text-align: end;
+  white-space: nowrap;
+}
+.mail #delete {
+  display: none;
+  border: none;
+  background: none;
+  font-size: 15px;
+  cursor: pointer;
+  text-align: end;
+}
+.mail:hover > .time {
+  display: none;
+}
+.mail:hover > #delete {
+  display: block;
 }
 
 aside {

@@ -88,38 +88,22 @@
         <!-- mailler alanı -->
         <div class="mails">
           <!-- mail -->
-          <div class="mail">
-            <!-- mail >  sol -->
+          <!-- <div class="mail">
+           
             <div class="info">
               <input type="checkbox" />
               <i class="bi bi-star-fill"></i>
               <b>Udemig</b>
             </div>
-            <!-- mail > orta -->
+       
             <div class="content">
               <p class="title">7-sezon cuma</p>
               <p>merhabalar, bugün dersimiz kaçta?</p>
             </div>
-            <!-- mail > sol -->
+       
             <p class="time">23:40</p>
           </div>
-          <!-- mail -->
-          <div class="mail">
-            <!-- mail >  sol -->
-            <div class="info">
-              <input type="checkbox" />
-              <i class="bi bi-star-fill"></i>
-              <b>Udemig</b>
-            </div>
-            <!-- mail > orta -->
-            <div class="content">
-              <p class="title">7-sezon cuma</p>
-              <p>merhabalar, bugün dersimiz kaçta?</p>
-            </div>
-            <!-- mail > sol -->
-            <p class="time">23:40</p>
-          </div>
-        </div>
+        --></div>
       </main>
 
       <!-- sağ > yan içerik -->
@@ -132,6 +116,25 @@
         <i class="bi bi-plus-lg icon"></i>
       </aside>
     </section>
+
+    <!-- modal -->
+    <div class="modal-wrapper">
+      <form class="modal">
+        <div class="header">
+          <h5>Yeni İleti</h5>
+          <div>
+            <button type="button" class="close-modal">
+              <p>X</p>
+            </button>
+          </div>
+        </div>
+        <input placeholder="Kime" type="text" />
+        <input placeholder="Konu" type="text" />
+        <textarea></textarea>
+
+        <button type="submit" id="send">Gönder</button>
+      </form>
+    </div>
 
     <!-- js bağlantı > birden fazla js dosyasıyla çalışabiliyoruz -->
     <script type="module" src="main.js"></script>

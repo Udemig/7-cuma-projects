@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 @import 'modules';
+@import 'modale';
 
 * {
   margin: 0;
@@ -166,7 +167,6 @@ main {
 }
 
 // mail stilleri
-
 .mail {
   display: grid;
   align-items: center;
@@ -175,16 +175,50 @@ main {
   font-size: 16px;
   padding: 10px;
   border-bottom: 1px solid white;
+  column-gap: 5px;
+  cursor: pointer;
 
+  &:hover {
+    box-shadow: 0 0 30px rgba(128, 128, 128, 0.408);
+  }
+  .info {
+    display: flex;
+    gap: 6px;
+  }
   .content {
     display: flex;
     .title {
       font-weight: bold;
     }
-  }
 
+    .title,
+    .text {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  }
   .time {
     text-align: end;
+    white-space: nowrap;
+  }
+
+  // sağ kısım
+  #delete {
+    display: none;
+    border: none;
+    background: none;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: end;
+  }
+
+  &:hover > .time {
+    display: none;
+  }
+
+  &:hover > #delete {
+    display: block;
   }
 }
 
