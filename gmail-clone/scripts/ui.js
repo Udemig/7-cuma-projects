@@ -9,6 +9,7 @@ export const ele = {
   closeBtn: document.querySelector('.close-modal'),
   modal: document.querySelector('.modal-wrapper'),
   modalForm: document.querySelector('.modal-wrapper form'),
+  searchInp: document.querySelector('#search-inp'),
 };
 
 //! ekrana kategorileri basar
