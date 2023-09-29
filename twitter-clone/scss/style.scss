@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;700;800;900&display=swap');
+@import 'auth';
+
+// tablet ekrnalarına kadar
+@mixin ipad {
+  @media (max-width: 1000px) {
+    @content;
+  }
+}
+// tablet ekranlarından sonra geçerli olur
+@mixin min-ipad {
+  @media (min-width: 1000px) {
+    @content;
+  }
+}
+
+//  laptop ekranlarına kadar
+@mixin laptop {
+  @media (max-width: 1300px) {
+    @content;
+  }
+}
+// lapttop ekrnalarından sonra geçerli olur
+@mixin min-laptop {
+  @media (min-width: 1300px) {
+    @content;
+  }
+}
+
+#feed {
+  background: black;
+  color: white;
+  min-height: 100vh;
+  font-family: 'poppins';
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 600px 1fr;
+  @include ipad() {
+    grid-template-columns: 1fr 3fr;
+  }
+}
+
+// sol > navigasyon menü
+nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @include min-laptop() {
+    align-items: end;
+    margin-right: 50px;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 10px;
+
+    @include laptop() {
+      align-items: end;
+    }
+
+    li {
+      display: flex;
+      font-size: 19px;
+      gap: 10px;
+      padding: 20px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.4s;
+      &:hover {
+        background: rgb(60, 60, 60);
+      }
+    }
+
+    button {
+      background: $blue;
+      color: white;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    i {
+      @include laptop() {
+        font-size: 26px;
+      }
+    }
+
+    span {
+      white-space: nowrap;
+      @include laptop() {
+        display: none;
+      }
+    }
+  }
+
+  img {
+    width: 80px;
+    @include laptop() {
+      width: 50px;
+    }
+  }
+}
+
+// orta > ana içerik
+main {
+  height: 100vh;
+  border: 1px solid rgb(50, 50, 50);
+}
+
+// sağ > yan içerik
+aside {
+}
