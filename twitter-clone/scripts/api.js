@@ -20,4 +20,16 @@ export class API {
     //   verileri döndür
     return data;
   }
+
+  // diğer api istekleri bu fonksiyon yapar.
+  // endpoint: hangi uç noktaya istek atıcaz
+  static async fetchData(endpoint) {
+    // paramaetre olarak gelen uç noktaya istek
+    const res = await fetch(
+      `https://twitter-api45.p.rapidapi.com${endpoint}`,
+      options
+    );
+    //  veriy işle ve fonksiyonun çağrıldığı yere gönder
+    return await res.json();
+  }
 }
