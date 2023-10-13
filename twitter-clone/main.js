@@ -6,6 +6,9 @@ import {
   renderUserInfo,
   renderTimeline,
   renderResults,
+  renderDetail,
+  renderDetailLoading,
+  renderUserPage,
 } from './scripts/ui.js';
 
 // lokal'den kullanıcı bilgilerini al
@@ -24,6 +27,12 @@ const router = async () => {
   switch (page) {
     // tweet detay
     case 'status':
+      // loadingi ekrana bas
+      renderDetailLoading();
+      // tweet detayları için api isteği
+      const tweetData = await API.fetchData(`/tweet.php?id=${query}`);
+      // detaları ekrana bas
+      renderDetail(tweetData);
       break;
     // arama sayfası
     case 'search':
@@ -35,6 +44,17 @@ const router = async () => {
       break;
     // kullanıcı detay sayfası
     case 'user':
+      // kullanıcnın hesap bilgilerini basma
+      renderLoader(ele.main);
+      const userInfo = await API.getUser(query);
+      renderUserPage(userInfo);
+      // kullanıncın tweetlerini basma
+      const outlet = document.querySelector('.page-bottom');
+      renderLoader(outlet);
+      const userTweet = await API.fetchData(
+        `/timeline.php?screenname=${query}`
+      );
+      renderTimeline(userTweet, outlet);
       break;
     //  ana sayfayı ekrana bas
     default:
@@ -73,11 +93,18 @@ ele.logoutBtn.addEventListener('click', () => {
 });
 
 // form gönderilidğinde
-
 ele.form.addEventListener('submit', (e) => {
   e.preventDefault();
   const query = e.target[0].value;
   // sayfa değiş
   // aratılan terimi parametre olarak ekle
   location = `?page=search&q=${query}`;
+});
+
+//geri butonuna tıklandığında
+ele.main.addEventListener('click', (e) => {
+  if (e.target.id === 'back-btn') {
+    // bir adım geriye git
+    history.back();
+  }
 });

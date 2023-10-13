@@ -68,6 +68,11 @@ aside {
   align-items: start;
   gap: 50px;
 }
+@media (max-width: 1000px) {
+  aside {
+    display: none;
+  }
+}
 
 aside form {
   background: rgb(40, 40, 40);
@@ -85,6 +90,157 @@ aside form input {
   color: gray;
 }
 
+.user-page .page-top {
+  border-bottom: 1px solid rgb(60, 60, 60);
+}
+.user-page .top {
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.user-page .top h3 {
+  font-size: 18px;
+  line-height: 14px;
+  margin-bottom: 2px;
+}
+.user-page .top span {
+  font-size: 15px;
+  color: gray;
+}
+.user-page .banner {
+  position: relative;
+}
+.user-page .banner img {
+  width: 100%;
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.user-page .banner .user-pp {
+  position: absolute;
+  bottom: -50px;
+  left: 30px;
+  max-width: 100px;
+  max-height: 100px;
+  border-radius: 50%;
+  border: 3px solid black;
+}
+@media (max-width: 1000px) {
+  .user-page .banner .user-pp {
+    bottom: -40px;
+    max-width: 80px;
+    max-height: 80px;
+  }
+}
+.user-page .buttons {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  margin-top: 20px;
+  margin-right: 20px;
+  gap: 10px;
+}
+.user-page .buttons .icon {
+  border: 1px solid gray;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.user-page .buttons .icon:hover {
+  background: rgba(128, 128, 128, 0.352);
+}
+.user-page .buttons button {
+  border-radius: 90px;
+}
+.user-page .buttons button:hover {
+  background: rgba(226, 226, 226, 0.863);
+}
+.user-page .info {
+  padding: 20px;
+}
+.user-page .info h4 {
+  font-size: 19px;
+  line-height: 17px;
+}
+.user-page .info .profile {
+  color: gray;
+  font-size: 14px;
+}
+.user-page .info p {
+  font-size: 15px;
+}
+.user-page .info div {
+  display: flex;
+  gap: 10px;
+}
+.user-page .info div a {
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+}
+.user-page .info div a span {
+  font-weight: bold;
+  color: white;
+}
+.user-page .info div a span:nth-child(2) {
+  color: gray;
+  font-weight: normal;
+}
+
+.radio-input input {
+  display: none;
+}
+
+.radio-input {
+  --container_width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  color: gray;
+  width: var(--container_width);
+  overflow: hidden;
+  border: 1px solid rgba(53, 52, 52, 0.226);
+}
+
+.radio-input label {
+  width: 100%;
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  letter-spacing: -1px;
+  font-size: 14px;
+}
+
+.selection {
+  display: none;
+  position: absolute;
+  height: 100%;
+  width: calc(var(--container_width) / 4);
+  z-index: 0;
+  text-align: center;
+  left: 0;
+  top: 0;
+  transition: 0.15s ease;
+}
+
+.radio-input label:has(input:checked) {
+  color: #fff;
+}
+
+.radio-input label:has(input:checked) {
+  border-bottom: 3px solid rgb(29, 155, 240);
+  color: white;
+  font-weight: 600;
+}
+
 #feed {
   background: black;
   color: white;
@@ -96,7 +252,12 @@ aside form input {
 }
 @media (max-width: 1000px) {
   #feed {
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 1fr 5fr 0 !important;
+  }
+}
+@media (min-width: 670px) and (max-width: 1000px) {
+  #feed {
+    grid-template-columns: 1fr 600px 1fr !important;
   }
 }
 
@@ -115,11 +276,20 @@ nav ul {
   display: flex;
   flex-direction: column;
   padding: 20px 10px;
+  color: white;
 }
 @media (max-width: 1300px) {
   nav ul {
     align-items: end;
   }
+}
+@media (max-width: 768px) {
+  nav ul {
+    align-items: center;
+  }
+}
+nav ul a {
+  color: white;
 }
 nav ul li {
   display: flex;
@@ -142,7 +312,7 @@ nav ul #send {
 }
 @media (max-width: 1300px) {
   nav ul i {
-    font-size: 26px;
+    font-size: 23px;
   }
 }
 nav ul span {
@@ -261,6 +431,33 @@ main #post-tweet .input-area .button button:hover {
   flex-direction: column;
 }
 
+.nav {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.nav h4 {
+  font-size: 20px;
+}
+
+#back-btn {
+  font-size: 21px;
+  width: 33px;
+  height: 33px;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 50%;
+  transition: all 0.3s;
+}
+#back-btn:hover {
+  background: rgba(86, 86, 86, 0.794);
+}
+
+.detail-tweet {
+  padding: 20px;
+}
+
 .tweet {
   display: flex;
   padding: 10px;
@@ -274,6 +471,21 @@ main #post-tweet .input-area .button button:hover {
   height: 50px;
   border-radius: 50%;
 }
+@media (max-width: 700px) {
+  .tweet #user-img {
+    display: none;
+  }
+}
+.tweet .mobile-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+@media (min-width: 700px) {
+  .tweet .mobile-img {
+    display: none;
+  }
+}
 .tweet .body {
   width: 100%;
   margin-top: 10px;
@@ -282,14 +494,29 @@ main #post-tweet .input-area .button button:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 10px;
 }
-.tweet .body .user div {
+.tweet .body .user a {
   display: flex;
+  align-items: center;
   gap: 10px;
+  cursor: pointer;
   color: white;
+  text-decoration: none;
 }
-.tweet .body .user div p {
+.tweet .body .user a p {
   color: gray;
+  margin-top: unset;
+  margin-bottom: unset;
+}
+@media (max-width: 1000px) {
+  .tweet .body .user a p {
+    font-size: 14px;
+  }
+}
+.tweet .body .content {
+  text-decoration: none;
+  color: #ffffff;
 }
 .tweet .body .content img {
   width: 100%;
@@ -303,6 +530,25 @@ main #post-tweet .input-area .button button:hover {
   border-radius: 10px;
   max-height: 500px;
 }
+.tweet .body button {
+  border-radius: 60px;
+  padding: 4px 20px;
+  font-size: 14px;
+  font-weight: bold;
+}
+.tweet .info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: gray;
+}
+.tweet .info p {
+  margin: 0;
+}
+.tweet .info #count {
+  color: white;
+  font-weight: bold;
+}
 
 .tweet .buttons {
   display: flex;
@@ -312,6 +558,11 @@ main #post-tweet .input-area .button button:hover {
 .tweet .buttons button {
   background: none;
   color: rgb(136, 136, 136);
+}
+@media (max-width: 1000px) {
+  .tweet .buttons button {
+    font-size: 14px;
+  }
 }
 .tweet .buttons button:nth-child(1):hover {
   color: #1da1f2;

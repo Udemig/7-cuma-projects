@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;700;800;900&display=swap');
 @import 'auth';
 @import 'aside';
+@import 'user';
 
 // tablet ekrnalarına kadar
 @mixin ipad {
@@ -37,7 +38,11 @@
   display: grid;
   grid-template-columns: 1fr 600px 1fr;
   @include ipad() {
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 1fr 5fr 0 !important;
+  }
+
+  @media (min-width: 670px) and (max-width: 1000px) {
+    grid-template-columns: 1fr 600px 1fr !important;
   }
 }
 
@@ -56,9 +61,18 @@ nav {
     display: flex;
     flex-direction: column;
     padding: 20px 10px;
+    color: white;
 
     @include laptop() {
       align-items: end;
+    }
+
+    @media (max-width: 768px) {
+      align-items: center;
+    }
+
+    a {
+      color: white;
     }
 
     li {
@@ -84,7 +98,7 @@ nav {
 
     i {
       @include laptop() {
-        font-size: 26px;
+        font-size: 23px;
       }
     }
 
@@ -204,6 +218,34 @@ main {
   flex-direction: column;
 }
 
+// detay sayfası için nav
+.nav {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  h4 {
+    font-size: 20px;
+  }
+}
+
+#back-btn {
+  font-size: 21px;
+  width: 33px;
+  height: 33px;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 50%;
+  transition: all 0.3s;
+
+  &:hover {
+    background: rgba(86, 86, 86, 0.794);
+  }
+}
+
+.detail-tweet {
+  padding: 20px;
+}
 .tweet {
   display: flex;
   padding: 10px;
@@ -215,6 +257,18 @@ main {
   #user-img {
     height: 50px;
     border-radius: 50%;
+    @media (max-width: 700px) {
+      display: none;
+    }
+  }
+  .mobile-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+
+    @media (min-width: 700px) {
+      display: none;
+    }
   }
   .body {
     width: 100%;
@@ -223,16 +277,28 @@ main {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      div {
+      margin-bottom: 10px;
+
+      a {
         display: flex;
+        align-items: center;
         gap: 10px;
+        cursor: pointer;
         color: white;
+        text-decoration: none;
         p {
           color: gray;
+          margin-top: unset;
+          margin-bottom: unset;
+          @include ipad {
+            font-size: 14px;
+          }
         }
       }
     }
     .content {
+      text-decoration: none;
+      color: #ffffff;
       img {
         width: 100%;
         object-fit: cover;
@@ -245,6 +311,29 @@ main {
         max-height: 500px;
       }
     }
+    // takip butonu
+    button {
+      border-radius: 60px;
+      padding: 4px 20px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+  }
+
+  // detay sayfasında gözüken
+  .info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: gray;
+    p {
+      margin: 0;
+    }
+
+    #count {
+      color: white;
+      font-weight: bold;
+    }
   }
 }
 
@@ -255,6 +344,10 @@ main {
   button {
     background: none;
     color: rgb(136, 136, 136);
+
+    @include ipad {
+      font-size: 14px;
+    }
 
     &:nth-child(1) {
       &:hover {
