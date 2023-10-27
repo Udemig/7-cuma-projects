@@ -1,0 +1,347 @@
+.wrapper {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+
+#wifi-loader {
+  --background: #fbda61;
+  --front-color: #f9a9cc;
+  --back-color: #fbda61;
+  --text-color: #fbda61;
+  width: 64px;
+  height: 64px;
+  border-radius: 50px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#wifi-loader svg {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#wifi-loader svg circle {
+  position: absolute;
+  fill: none;
+  stroke-width: 6px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transform: rotate(-100deg);
+  transform-origin: center;
+}
+
+#wifi-loader svg circle.back {
+  stroke: var(--back-color);
+}
+
+#wifi-loader svg circle.front {
+  stroke: var(--front-color);
+}
+
+#wifi-loader svg.circle-outer {
+  height: 86px;
+  width: 86px;
+}
+
+#wifi-loader svg.circle-outer circle {
+  stroke-dasharray: 62.75 188.25;
+}
+
+#wifi-loader svg.circle-outer circle.back {
+  animation: circle-outer135 1.8s ease infinite 0.3s;
+}
+
+#wifi-loader svg.circle-outer circle.front {
+  animation: circle-outer135 1.8s ease infinite 0.15s;
+}
+
+#wifi-loader svg.circle-middle {
+  height: 60px;
+  width: 60px;
+}
+
+#wifi-loader svg.circle-middle circle {
+  stroke-dasharray: 42.5 127.5;
+}
+
+#wifi-loader svg.circle-middle circle.back {
+  animation: circle-middle6123 1.8s ease infinite 0.25s;
+}
+
+#wifi-loader svg.circle-middle circle.front {
+  animation: circle-middle6123 1.8s ease infinite 0.1s;
+}
+
+#wifi-loader svg.circle-inner {
+  height: 34px;
+  width: 34px;
+}
+
+#wifi-loader svg.circle-inner circle {
+  stroke-dasharray: 22 66;
+}
+
+#wifi-loader svg.circle-inner circle.back {
+  animation: circle-inner162 1.8s ease infinite 0.2s;
+}
+
+#wifi-loader svg.circle-inner circle.front {
+  animation: circle-inner162 1.8s ease infinite 0.05s;
+}
+
+#wifi-loader .text {
+  position: absolute;
+  bottom: -40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: lowercase;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.2px;
+}
+
+#wifi-loader .text::before,
+#wifi-loader .text::after {
+  content: attr(data-text);
+}
+
+#wifi-loader .text::before {
+  color: var(--text-color);
+}
+
+#wifi-loader .text::after {
+  color: var(--front-color);
+  animation: text-animation76 3.6s ease infinite;
+  position: absolute;
+  left: 0;
+}
+
+@keyframes circle-outer135 {
+  0% {
+    stroke-dashoffset: 25;
+  }
+
+  25% {
+    stroke-dashoffset: 0;
+  }
+
+  65% {
+    stroke-dashoffset: 301;
+  }
+
+  80% {
+    stroke-dashoffset: 276;
+  }
+
+  100% {
+    stroke-dashoffset: 276;
+  }
+}
+
+@keyframes circle-middle6123 {
+  0% {
+    stroke-dashoffset: 17;
+  }
+
+  25% {
+    stroke-dashoffset: 0;
+  }
+
+  65% {
+    stroke-dashoffset: 204;
+  }
+
+  80% {
+    stroke-dashoffset: 187;
+  }
+
+  100% {
+    stroke-dashoffset: 187;
+  }
+}
+
+@keyframes circle-inner162 {
+  0% {
+    stroke-dashoffset: 9;
+  }
+
+  25% {
+    stroke-dashoffset: 0;
+  }
+
+  65% {
+    stroke-dashoffset: 106;
+  }
+
+  80% {
+    stroke-dashoffset: 97;
+  }
+
+  100% {
+    stroke-dashoffset: 97;
+  }
+}
+
+@keyframes text-animation76 {
+  0% {
+    clip-path: inset(0 100% 0 0);
+  }
+
+  50% {
+    clip-path: inset(0);
+  }
+
+  100% {
+    clip-path: inset(0 0 0 100%);
+  }
+}
+
+// hazıt buton
+.CartBtn {
+  margin: auto;
+  margin-top: 40px;
+  width: 40%;
+  height: 40px;
+  border-radius: 12px;
+  border: none;
+  background-color: rgb(255, 208, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition-duration: 0.5s;
+  overflow: hidden;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.103);
+  position: relative;
+}
+
+.IconContainer {
+  pointer-events: none;
+  position: absolute;
+  left: -50px;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 2;
+  transition-duration: 0.5s;
+}
+
+.icon {
+  border-radius: 1px;
+}
+
+.text {
+  pointer-events: none;
+  height: 100%;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(17, 17, 17);
+  z-index: 1;
+  transition-duration: 0.5s;
+  font-size: 1.04em;
+  font-weight: 600;
+}
+
+.CartBtn:hover .IconContainer {
+  transform: translateX(58px);
+  border-radius: 40px;
+  transition-duration: 0.5s;
+}
+
+.CartBtn:hover .text {
+  transform: translate(10px, 0px);
+  transition-duration: 0.5s;
+}
+
+.CartBtn:active {
+  transform: scale(0.95);
+  transition-duration: 0.5s;
+}
+
+// likes
+.paste-button {
+  position: relative;
+  display: block;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.button {
+  background-color: #f9a9cc;
+  color: white;
+  padding: 10px 15px;
+  font-size: 15px;
+  font-weight: bold;
+  border: 2px solid transparent;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  font-size: 13px;
+  position: absolute;
+  overflow: hidden;
+  left: -151px;
+  z-index: 1;
+  min-width: 200px;
+  background-color: #212121;
+  border: 2px solid #f9a9cc;
+  border-radius: 15px 0px 15px 15px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-content a {
+  color: #f9a9cc;
+  padding: 8px 10px;
+  font-size: 16px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: 0.1s;
+  img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+}
+
+.dropdown-content a:hover {
+  background-color: #f9a9cc;
+  color: #212121;
+}
+
+.dropdown-content a:focus {
+  background-color: #212121;
+  color: #f9a9cc;
+}
+
+.dropdown-content #top:hover {
+  border-radius: 13px 0px 0px 0px;
+}
+
+.dropdown-content #bottom:hover {
+  border-radius: 0px 0px 13px 13px;
+}
+
+.paste-button:hover button {
+  border-radius: 15px 15px 0px 0px;
+}
+
+.paste-button:hover .dropdown-content {
+  display: block;
+}

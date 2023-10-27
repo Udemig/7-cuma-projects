@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+button {
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+li {
+  list-style: none;
+}
+
+input {
+  border: none;
+  outline: none;
+  padding: 3px 8px;
+}
+@mixin mobile {
+  @media (max-width: 500px) {
+    @content;
+  }
+}
+@mixin ipad {
+  @media (max-width: 700px) {
+    @content;
+  }
+}
+@mixin laptop {
+  @media (max-width: 1200px) {
+    @content;
+  }
+}
+
+$yellow: #fbda61;
+$white: #f9f5f3;
+$pink: #ff5acd;
