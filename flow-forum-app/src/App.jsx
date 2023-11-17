@@ -4,7 +4,8 @@ import MainPage from './pages/MainPage/index';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
 import ProtectedRoute from './pages/ProtectedRoute';
-import Header from './components/Header';
+import Layout from './pages/Layout';
+import DetailPage from './pages/DetailPage';
 
 function App() {
   return (
@@ -13,7 +14,12 @@ function App() {
       <Route path="/register" element={<Register />} />
 
       <Route element={<ProtectedRoute />}>
-        <Route path="" element={<MainPage />} />
+        {/* Layout ile kapsağım sayfalar sol ve sağ side bar'ın ortasına gelicek */}
+        <Route element={<Layout />}>
+          <Route path="" element={<MainPage />} />
+          <Route path="/post/:id" element={<DetailPage />} />
+        </Route>
+
         <Route path="profile" element={<Profile />} />
       </Route>
     </Routes>

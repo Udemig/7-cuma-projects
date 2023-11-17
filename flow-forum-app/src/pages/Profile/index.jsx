@@ -1,9 +1,11 @@
-import { useContext } from 'react';
-import { UserContext } from './../context/UserContext';
-import Header from './../components/Header/index';
+import { useContext, useState } from 'react';
+import { UserContext } from '../../context/UserContext';
+import Header from '../../components/Header/index';
+import ResetModal from './ResetModal';
 
 const Profile = () => {
   const { activeUser, deleteAccount } = useContext(UserContext);
+  const [showModal, setShowModal] = useState(false);
 
   return (
     <div className="h-screen  bg-gray-900 overflow-hidden">
@@ -28,7 +30,12 @@ const Profile = () => {
               <span className="text-xl">{activeUser.email}</span>
             </p>
 
-            <button className="bg-blue-600 rounded px-10 py-2 text-base font-normal hover:bg-blue-500">
+            <button
+              onClick={() => {
+                setShowModal(true);
+              }}
+              className="bg-blue-600 rounded px-10 py-2 text-base font-normal hover:bg-blue-500"
+            >
               Şifreyi Değiştir
             </button>
 
@@ -40,6 +47,15 @@ const Profile = () => {
             </button>
           </div>
         </div>
+      )}
+
+      {showModal && (
+        <ResetModal
+          id={activeUser?.id}
+          close={() => {
+            setShowModal(false);
+          }}
+        />
       )}
     </div>
   );

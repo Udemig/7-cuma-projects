@@ -1,10 +1,14 @@
 import Header from '../../components/Header';
+import Form from './Form';
+import ListPosts from './ListPosts';
 
 const MainPage = () => {
   return (
-    <div className="bg-gray-900 text-white h-screen ">
-      <Header />
-    </div>
+    <>
+      <Form />
+
+      <ListPosts />
+    </>
   );
 };
 

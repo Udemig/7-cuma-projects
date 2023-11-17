@@ -19,17 +19,17 @@ const ProfileInfo = () => {
           <h2 className="font-bold">{activeUser.name}</h2>
 
           {/* hover olunca açılır */}
-          <div className="group-hover:block hidden absolute top-14 bg-gray-600 rounded start-[-30px] p-1">
+          <div className="group-hover:flex flex-col  hidden absolute top-14 bg-gray-600 rounded start-[-30px] p-1">
             <p className="rounded p-2">{activeUser.email}</p>
             <Link
               to={'/profile'}
-              className="rounded p-2 hover:bg-gray-400"
+              className="rounded p-2 w-full hover:bg-gray-400"
             >
               Profili Göster
             </Link>
             <p
               onClick={logout}
-              className="rounded p-2 hover:bg-gray-400"
+              className="rounded p-2 w-full hover:bg-gray-400"
             >
               Çıkış Yap
             </p>
